@@ -17,7 +17,7 @@ LABEL \
 RUN \
   yum -y update && \
   yum -y upgrade && \
-  yum -y install maven openjdk11 && \
+  yum -y install maven java-11-openjdk && \
   yum -y clean all && \
   rm -fr /var/cache/yum
 
