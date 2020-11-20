@@ -2,32 +2,13 @@
 
 set -e
 
-
-java -version
-which java
-mvn --version
-which mvn
-
-
 cd /tmp/src
 
-mvn package
+M2_HOME='/opt/apache-maven-3.6.3'
+$M2_HOME/bin/mvn package
 
-mkdir -p /opt/app/tmp
-
-DEFAULT_TARGET='target/app.jar'
-if [ -f $DEFAULT_TARGET ]
-  then
-    cp $DEFAULT_TARGET /opt/app/app.jar
-  fi
-
-for f in $(find target -maxdepth 1 -type f -name '*-distribution.tar.gz')
-  do
-    echo "found tarball '$f'"
-    tar -C /opt/app/ -xzvf ./"$f" --strip-components=1
-    mv /opt/app/*.jar /opt/app/app.jar
-  done
-
+mkdir -p '/opt/app/tmp'
+mv 'target/app.jar' '/opt/app/app.jar'
 chmod -R 777 /opt/app/
 
 ls -l /opt/app
