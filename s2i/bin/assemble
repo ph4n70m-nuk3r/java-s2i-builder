@@ -2,8 +2,6 @@
 
 set -e
 
-cd /tmp/src
-
 
 java -version
 which java
@@ -11,6 +9,8 @@ ls -l $(which java)
 which mvn
 ls -l $(which mvn)
 
+
+cd /tmp/src
 
 mvn package
 

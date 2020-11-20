@@ -1,4 +1,4 @@
-FROM team8/s2i-base:1
+FROM team8/openjdk-11:1.3-6
 
 ENV \
   S2I_HOME='/usr/libexec/s2i' \
@@ -17,11 +17,10 @@ LABEL \
 RUN \
   yum -y update && \
   yum -y upgrade && \
-  yum -y remove java-1.8.0-openjdk-headless java-1.8.0-openjdk && \
-  yum -y install yum-utils maven java-11-openjdk && \
+  yum -y install maven && \
   yum -y clean all && \
   rm -fr /var/cache/yum
-  
+
 RUN \
   alternatives --set java java-11-openjdk
 
