@@ -1,4 +1,4 @@
-FROM ubi8/s2i-base:1
+FROM team8/s2i-base:1
 
 ENV \
   S2I_HOME='/usr/libexec/s2i' \
