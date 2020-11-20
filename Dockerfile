@@ -15,11 +15,9 @@ LABEL \
   io.openshift.s2i.scripts-url="image://$S2I_HOME"
 
 RUN \
-  yum -y update && \
-  yum -y upgrade && \
-  yum -y install maven && \
-  yum -y clean all && \
-  rm -fr /var/cache/yum
+  microdnf update  --nodocs && \
+  microdnf install maven    && \
+  microdnf clean   all
 
 COPY ./s2i/bin/ $S2I_HOME/.
 
