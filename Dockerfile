@@ -17,6 +17,7 @@ LABEL \
 RUN \
   yum -y update && \
   yum -y upgrade && \
+  yum -y remove java-1.8.0-openjdk-headless java-1.8.0-openjdk && \
   yum -y install yum-utils maven java-11-openjdk && \
   yum -y clean all && \
   rm -fr /var/cache/yum
