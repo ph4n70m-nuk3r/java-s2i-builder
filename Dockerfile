@@ -18,7 +18,6 @@ RUN \
   yum -y update && \
   yum -y upgrade && \
   yum -y install yum-utils maven java-11-openjdk && \
-  repoquery -l java-11-openjdk && \
   yum -y clean all && \
   rm -fr /var/cache/yum
 

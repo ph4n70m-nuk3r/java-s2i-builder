@@ -4,6 +4,7 @@ set -e
 
 cd /tmp/src
 
+JAVA_HOME='/usr/lib/jvm/java-11-openjdk-amd64'
 mvn package
 
 mkdir -p /opt/app/tmp
