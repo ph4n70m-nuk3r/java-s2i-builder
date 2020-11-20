@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -e
+
+echo "Launching application..."
+cd /opt/app
+java $JAVA_OPTIONS -jar app.jar $APP_OPTIONS
+
