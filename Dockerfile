@@ -21,9 +21,6 @@ RUN \
   yum -y clean all && \
   rm -fr /var/cache/yum
 
-RUN \
-  alternatives --set java java-11-openjdk
-
 COPY ./s2i/bin/ $S2I_HOME/.
 
 RUN \
