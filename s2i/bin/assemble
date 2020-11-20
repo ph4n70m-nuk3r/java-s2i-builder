@@ -4,7 +4,16 @@ set -e
 
 cd /tmp/src
 
+java --version
+
+which java
+ls -l $(which java)
+which mvn
+ls -l $(which mvn)
+
 JAVA_HOME='/usr/lib/jvm/java-11-openjdk-amd64'
+ls -R $JAVA_HOME
+
 mvn package
 
 mkdir -p /opt/app/tmp
