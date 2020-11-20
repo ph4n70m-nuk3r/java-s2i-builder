@@ -11,7 +11,7 @@ which mvn
 
 cd /tmp/src
 
-mvn -e -X package
+mvn package
 
 mkdir -p /opt/app/tmp
 
