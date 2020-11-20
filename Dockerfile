@@ -15,10 +15,10 @@ LABEL \
   io.openshift.s2i.scripts-url="image://$S2I_HOME"
 
 RUN \
-  dnf makecache && \
-  dnf update  --nodocs && \
-  dnf install maven    && \
-  dnf clean   all
+  sudo dnf makecache          && \
+  sudo dnf update    --nodocs && \
+  sudo dnf install   maven    && \
+  sudo dnf clean     all
 
 COPY ./s2i/bin/ $S2I_HOME/.
 
