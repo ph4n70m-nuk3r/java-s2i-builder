@@ -2,10 +2,16 @@
 
 set -e
 
-cd /opt/app-root/src
-#cd /tmp/src
 
-mvn package
+java -version
+which java
+mvn --version
+which mvn
+
+
+cd /tmp/src
+
+mvn -e -X package
 
 mkdir -p /opt/app/tmp
 
