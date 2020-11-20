@@ -2,7 +2,8 @@
 
 set -e
 
-cd /tmp/src
+cd /opt/app-root/src
+#cd /tmp/src
 
 mvn package
 
