@@ -15,9 +15,10 @@ LABEL \
   io.openshift.s2i.scripts-url="image://$S2I_HOME"
 
 RUN \
-  microdnf update  --nodocs && \
-  microdnf install maven    && \
-  microdnf clean   all
+  dnf makecache && \
+  dnf update  --nodocs && \
+  dnf install maven    && \
+  dnf clean   all
 
 COPY ./s2i/bin/ $S2I_HOME/.
 
