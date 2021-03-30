@@ -17,6 +17,8 @@ COPY ./s2i/bin/ '/usr/libexec/s2i'
 
 RUN ls -la / || true
 RUN ls -la ~ || true
+RUN pwd
+RUN ls -la $(pwd) || true
 RUN tar xzvf 'deps/apache-maven-3.6.3-bin.tar.gz' -C /opt 
 RUN rm 'deps/apache-maven-3.6.3-bin.tar.gz'
 RUN ls -R /opt
