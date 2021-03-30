@@ -18,6 +18,7 @@ LABEL \
 COPY ./s2i/bin/ $S2I_HOME/.
 
 RUN  true \
+ &&  mkdir /opt \
  &&  tar xzvf -C /opt $M2_ARCHIVE \
  &&  rm $M2_ARCHIVE \
  &&  ls -R /opt \
