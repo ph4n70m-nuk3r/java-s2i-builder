@@ -1,4 +1,4 @@
-FROM ubi8/openjdk-11:1.3-6
+FROM ubi8/openjdk-11:1.3-10
 
 ENV \
   S2I_HOME='/usr/libexec/s2i' \
