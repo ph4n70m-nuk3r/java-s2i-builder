@@ -18,7 +18,7 @@ LABEL \
 COPY ./s2i/bin/ $S2I_HOME/.
 
 RUN  true \
- &&  tar -C /opt xzvf $M2_ARCHIVE \
+ &&  tar xzvf -C /opt $M2_ARCHIVE \
  &&  rm $M2_ARCHIVE \
  &&  ls -R /opt \
  &&  chown -R 1001:1001 /opt \
