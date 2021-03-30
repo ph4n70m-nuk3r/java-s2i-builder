@@ -15,7 +15,7 @@ LABEL io.openshift.s2i.scripts-url="image:///usr/libexec/s2i"
 
 COPY ./s2i/bin/ '/usr/libexec/s2i'
 
-RUN tar xzvf -C /opt 'deps/apache-maven-3.6.3-bin.tar.gz'
+RUN tar xzvf 'deps/apache-maven-3.6.3-bin.tar.gz' -C /opt 
 RUN rm 'deps/apache-maven-3.6.3-bin.tar.gz'
 RUN ls -R /opt
 RUN chown -R 1001:1001 /opt
