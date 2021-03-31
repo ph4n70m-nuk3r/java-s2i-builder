@@ -1,4 +1,4 @@
-FROM ubi8/openjdk-11:1.3-10
+FROM 172.30.1.1:5000/investments-nexus-d00/ubi
 
 RUN whoami
 RUN mkdir opt || ls opt || true
