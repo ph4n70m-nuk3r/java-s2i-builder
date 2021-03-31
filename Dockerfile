@@ -1,5 +1,8 @@
 FROM ubi8/openjdk-11:1.3-10
 
+RUN whoami
+RUN mkdir opt || ls opt || true
+
 ENV S2I_HOME='/usr/libexec/s2i'
 ENV SUMMARY="java-s2i-builder"
 ENV DESCRIPTION="An S2I builder for java apps."
