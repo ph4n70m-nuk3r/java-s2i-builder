@@ -1,7 +1,8 @@
 FROM 172.30.1.1:5000/investments-nexus-d00/ubi
 
 RUN whoami
-RUN mkdir /opt || ls /opt
+RUN ls /opt
+RUN ls /opt/jboss
 
 ENV S2I_HOME='/usr/libexec/s2i' \
     SUMMARY="java-s2i-builder" \
