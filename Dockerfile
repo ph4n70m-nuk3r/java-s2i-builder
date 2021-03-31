@@ -1,20 +1,20 @@
 FROM 172.30.1.1:5000/investments-nexus-d00/ubi
 
 RUN whoami
-RUN mkdir opt || ls opt || true
+RUN mkdir /opt || ls /opt
 
-ENV S2I_HOME='/usr/libexec/s2i'
-ENV SUMMARY="java-s2i-builder"
-ENV DESCRIPTION="An S2I builder for java apps."
-ENV M2_ARCHIVE='deps/apache-maven-3.6.3-bin.tar.gz'
+ENV S2I_HOME='/usr/libexec/s2i' \
+    SUMMARY="java-s2i-builder" \
+    DESCRIPTION="An S2I builder for java apps." \
+    M2_ARCHIVE='deps/apache-maven-3.6.3-bin.tar.gz'
 
-LABEL description="$DESCRIPTION"
-LABEL summary="$SUMMARY"
-LABEL io.k8s.description="$DESCRIPTION"
-LABEL io.k8s.display-name="$SUMMARY"
-LABEL io.openshift.expose-services="8080:http"
-LABEL io.openshift.tags="s2i,builder,java,jdk"
-LABEL io.openshift.s2i.scripts-url="image:///usr/libexec/s2i"
+LABEL description="$DESCRIPTION" \
+      summary="$SUMMARY" \
+      io.k8s.description="$DESCRIPTION" \
+      io.k8s.display-name="$SUMMARY" \
+      io.openshift.expose-services="8080:http" \
+      io.openshift.tags="s2i,builder,java,jdk" \
+      io.openshift.s2i.scripts-url="image:///usr/libexec/s2i"
 
 COPY ./s2i/bin/ '/usr/libexec/s2i'
 
