@@ -4,8 +4,7 @@ set -e
 
 cd /tmp/src
 
-M2_HOME='/opt/apache-maven-3.6.3'
-$M2_HOME/bin/mvn package
+mvn package
 
 mkdir -p '/opt/app/tmp'
 mv 'target/app.jar' '/opt/app/app.jar'
