@@ -25,7 +25,7 @@ RUN mvn -version
 RUN yum clean all
 
 RUN chown -R 1001:1001 '/usr/libexec/s2i'
-RUN chmod +x '/usr/libexec/s2i'*
+RUN chmod +x "/usr/libexec/s2i/*"
 
 RUN ls -la '/usr/libexec/s2i'
 
