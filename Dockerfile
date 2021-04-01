@@ -19,14 +19,19 @@ LABEL description="$DESCRIPTION" \
 
 COPY ./s2i/bin/ '/usr/libexec/s2i'
 
-RUN ls -la / || true
-RUN ls -la ~ || true
-RUN pwd
-RUN ls -la $(pwd) || true
-RUN tar xzvf 'deps/apache-maven-3.6.3-bin.tar.gz' -C /opt 
-RUN rm 'deps/apache-maven-3.6.3-bin.tar.gz'
-RUN ls -R /opt
-RUN chown -R 1001:1001 /opt
+RUN yum upgrade
+RUN yum install maven
+RUN mvn -version
+RUN yum clean-all
+
+#RUN ls -la / || true
+#RUN ls -la ~ || true
+#RUN pwd
+#RUN ls -la $(pwd) || true
+#RUN tar xzvf 'deps/apache-maven-3.6.3-bin.tar.gz' -C /opt 
+#RUN rm 'deps/apache-maven-3.6.3-bin.tar.gz'
+#RUN ls -R /opt
+#RUN chown -R 1001:1001 /opt
 RUN chown -R 1001:1001 '/usr/libexec/s2i'
 RUN chmod +x '/usr/libexec/s2i'*
 
