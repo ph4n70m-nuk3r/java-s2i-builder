@@ -19,8 +19,8 @@ LABEL description="$DESCRIPTION" \
 
 COPY ./s2i/bin/ '/usr/libexec/s2i'
 
-RUN yum upgrade
-RUN yum install maven
+RUN yum upgrade -y
+RUN yum install maven -y
 RUN mvn -version
 RUN yum clean-all
 
