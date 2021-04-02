@@ -1,8 +1,7 @@
 FROM 172.30.1.1:5000/investments-nexus-d00/ubi
 
 RUN whoami
-RUN ls /opt
-RUN find /opt/jboss | sort
+RUN ls -1 /opt | sort
 
 ENV S2I_HOME='/usr/libexec/s2i' \
     SUMMARY="java-s2i-builder" \
@@ -24,6 +23,9 @@ RUN yum install maven java-11-openjdk-devel -y
 RUN mvn -version
 RUN yum clean all
 
+RUN mkdir -p '/opt/app'
+RUN chown -R 1001:1001 '/opt/app'
+
 RUN chown -R 1001:1001 '/usr/libexec/s2i'
 RUN chmod +x '/usr/libexec/s2i/assemble'
 RUN chmod +x '/usr/libexec/s2i/run'
@@ -32,4 +34,3 @@ RUN ls -la '/usr/libexec/s2i'
 
 USER 1001
 EXPOSE 8080
-
