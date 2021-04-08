@@ -21,10 +21,14 @@ COPY ./s2i/bin/ '/usr/libexec/s2i'
 RUN yum upgrade -y
 RUN yum install yum-utils maven java-11-openjdk-devel -y
 RUN yum clean all
+
 RUN repoquery --list java-11-openjdk-devel
 
-RUN /usr/sbin/alternatives --set java java-11.0.0-openjdk.x86_64
-RUN /usr/sbin/alternatives --set javac javac-11.0.0-openjdk.x86_64
+RUN JAVA_11=$(alternatives  --display java  | grep 'family java-11-openjdk'  | cut -d' ' -f1) && echo $JAVA_11  && alternatives --set java  $JAVA_11
+RUN JAVAC_11=$(alternatives --display javac | grep 'family javac-11-openjdk' | cut -d' ' -f1) && echo $JAVAC_11 && alternatives --set javac $JAVAC_11
+
+# RUN /usr/sbin/alternatives --set java java-11.0.0-openjdk.x86_64
+# RUN /usr/sbin/alternatives --set javac javac-11.0.0-openjdk.x86_64
 
 RUN mvn -version
 RUN java -version
