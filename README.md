@@ -1,7 +1,7 @@
 java-s2i-builder
 ===
 
-S2I builder for java applications. Uses OpenJDK8.
+S2I builder for java applications. Uses OpenJDK11.
 
 Create builder using:
 ```
