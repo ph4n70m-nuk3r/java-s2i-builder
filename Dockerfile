@@ -18,6 +18,8 @@ LABEL description="$DESCRIPTION" \
 
 COPY ./s2i/bin/ '/usr/libexec/s2i'
 
+RUN cat '/etc/selinux/config'
+
 RUN yum upgrade -y
 RUN yum install yum-utils maven java-11-openjdk-devel -y
 RUN yum clean all
