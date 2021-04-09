@@ -18,7 +18,8 @@ LABEL description="$DESCRIPTION" \
 
 COPY ./s2i/bin/ '/usr/libexec/s2i'
 
-RUN dnf upgrade -y
+RUN subscription-manager status
+RUN subscription-manager --help
 
 RUN yum upgrade -y
 RUN yum install yum-utils maven java-11-openjdk-devel -y
