@@ -18,8 +18,17 @@ LABEL description="$DESCRIPTION" \
 
 COPY ./s2i/bin/ '/usr/libexec/s2i'
 
+## Attempt to fix issue with curl connecting to RH CDN 
+RUN ls -l /etc
+RUN ls -l /etc/yum.repos.d
+RUN rm -rf /etc/yum.repos.d/*
+RUN yum clean all
+
+## Upgrade all packages
 RUN dnf upgrade -v -y
+## Install toolchains
 RUN yum install yum-utils maven java-11-openjdk-devel -y
+## Clean
 RUN yum clean all
 
 RUN repoquery --list java-11-openjdk-devel
