@@ -22,7 +22,9 @@ COPY ./s2i/bin/ '/usr/libexec/s2i'
 RUN ls -l /etc
 RUN ls -l /etc/yum.repos.d
 RUN cat /etc/yum.repos.d/ubi.repo
-RUN yum clean all
+#RUN yum clean all
+
+# disable GPG check on repos??
 
 ## Upgrade all packages
 RUN dnf upgrade -v -y
