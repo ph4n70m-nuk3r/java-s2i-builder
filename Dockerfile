@@ -21,7 +21,7 @@ COPY ./s2i/bin/ '/usr/libexec/s2i'
 ## Attempt to fix issue with curl connecting to RH CDN 
 RUN ls -l /etc
 RUN ls -l /etc/yum.repos.d
-RUN rm -rf /etc/yum.repos.d/*
+RUN cat /etc/yum.repos.d/ubi.repo
 RUN yum clean all
 
 ## Upgrade all packages
