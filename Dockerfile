@@ -18,7 +18,7 @@ LABEL description="$DESCRIPTION" \
 
 COPY ./s2i/bin/ '/usr/libexec/s2i'
 
-RUN yum upgrade -y
+RUN dnf upgrade -v -y
 RUN yum install yum-utils maven java-11-openjdk-devel -y
 RUN yum clean all
 
